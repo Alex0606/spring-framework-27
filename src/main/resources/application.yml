@@ -1,0 +1,7 @@
+spring.data.rest.basePath: /api
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
