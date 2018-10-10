@@ -3,6 +3,7 @@ package ru.otus.spring.microservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.hateoas.config.EnableHypermediaSupport;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import ru.otus.spring.microservice.domain.Person;
 import ru.otus.spring.microservice.repostory.PersonRepository;
@@ -22,7 +23,9 @@ public class App {
 
     @PostConstruct
     public void init() {
-        repository.save(new Person("Ivan"));
-        repository.save(new Person("Maria"));
+        for(int i = 0 ; i < 1000; ++i) {
+            repository.save(new Person("Ivan"));
+            repository.save(new Person("Maria"));
+        }
     }
 }
